@@ -4,8 +4,8 @@
   <hr>
 
   <%= simple_format(@article.description) %>
-  <small>Article Author: <%= @article.user.username  if article.user%></small><br />
-  <small>Author's email: <%= @article.user.email %></small><br />
+  <small>Article Author: <%= @article.user.username  if @article.user%></small><br />
+  
   <small><% time_ago_in_words(@article.created_at) %></small><br />
     <small>last updated: <%= time_ago_in_words(@article.updated_at) %> ago </small>
 
