@@ -1,27 +1,32 @@
 <h1 align="center">listing all articles</h1>
 
-<% @user.each do |list| %>
-<div class="row">
-  <div class="col-xs-8 col-xs-offset-2">
-    <div class="well well-lg">
-      <div class="article-title">
-        <%= link_to list.username, user_path(list) %>
-      </div>
-      <div class="article-body">
-        <%= list.email %>
-      </div>
+<% @users.each do |list| %>
+    <div class="listing">
+    <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="well well-lg" align="center">
+        <div class="article-title" >
+          <%= link_to list.username, user_path(list) %>
+        </div>
+        <div class="article-body">
+        <ul class="listing">
+          <li><%= list.email %></li>
+          <li><%= link_to gravatar_for(list), user_path(list) %></li>
+        </ul>
+        </div>
+        <li><small><%= pluralize(list.articles.count, "article") if list.articles %></small></li>
+        <div class="article-actions">
+        <%= link_to "edit this username", edit_user_path(list), class: "btn btn-xs btn-primary" %>
+        <%= link_to "show article", user_path(list), class: "btn btn-xs btn-success" %>
+        <%= link_to "Delete this article", user_path(list), method: :delete,
+                      data: {confirm: "Are you sure you wan to delete article?"}, class: "btn btn-xs btn-danger" %>
 
-      <div class="article-actions">
-      <%= link_to "edit this username", edit_user_path(list), class: "btn btn-xs btn-primary" %>
-      <%= link_to "show article", user_path(list), class: "btn btn-xs btn-success" %>
-      <%= link_to "Delete this article", user_path(list), method: :delete,
-                    data: {confirm: "Are you sure you wan to delete article?"}, class: "btn btn-xs btn-danger" %>
 
-
+        </div>
       </div>
     </div>
-  </div>
-</div>
+    </div>
+    </div>
 
 
 <% end %>
