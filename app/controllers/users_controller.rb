@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @pagy, @users = pagy(User.all, items: 2)
   end
 
   def create
