@@ -1,4 +1,10 @@
 <h1 align="center">listing all articles</h1>
+<div class="pagination">
 <%== pagy_bootstrap_nav(@pagy) %>
+</div>
+
 <%= render 'article', obj:@articles %>
+
+<div class="pagination">
 <%== pagy_bootstrap_nav(@pagy) %>
+</div>
