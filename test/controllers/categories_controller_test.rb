@@ -1,3 +1,4 @@
+=begin
 require 'test_helper'
 
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
@@ -22,3 +23,4 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
 end
+=end
